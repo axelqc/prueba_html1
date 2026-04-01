@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Chat Mantenimiento Remolques</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: auto;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: #ff4b4b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #e04343;
+  }
+
+  .status {
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  .ok { background: #d4edda; color: #155724; }
+  .error { background: #f8d7da; color: #721c24; }
+  .warning { background: #fff3cd; color: #856404; }
+
+  #chat {
+    height: 600px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🚛 Sistema de Mantenimiento</h1>
+
+  <div class="card">
+    <h3>📋 Instrucciones</h3>
+    <p>1. Levanta el servicio</p>
+    <p>2. Espera estado OK</p>
+    <p>3. Usa el chat</p>
+  </div>
+
+  <div class="card">
+    <button onclick="checkService()">🚀 Levantar Servicio</button>
+    <div id="status" class="status warning">
+      🟡 Servicio no verificado
+    </div>
+  </div>
+
+  <div class="card" id="chatContainer" style="display:none;">
+    <h3>💬 Chat</h3>
+    <div id="root"></div>
+  </div>
+
+</div>
+
+<script>
+async function checkService() {
+  const statusDiv = document.getElementById("status");
+
+  statusDiv.className = "status warning";
+  statusDiv.innerHTML = "⏳ Verificando servicio...";
+
+  try {
+    const response = await fetch("https://mantenimientos-remolques.onrender.com/health");
+
+    if (!response.ok) {
+      throw new Error("HTTP " + response.status);
+    }
+
+    const data = await response.json();
+
+    if (data.status.toLowerCase() === "ok") {
+      statusDiv.className = "status ok";
+      statusDiv.innerHTML = "🟢 Servicio activo";
+
+      loadChat();
+    } else {
+      statusDiv.className = "status error";
+      statusDiv.innerHTML = "⚠️ Servicio respondió pero no está OK";
+    }
+
+  } catch (err) {
+    statusDiv.className = "status error";
+    statusDiv.innerHTML = "❌ Error de conexión: " + err.message;
+  }
+}
+
+function loadChat() {
+  document.getElementById("chatContainer").style.display = "block";
+
+  window.wxOConfiguration = {
+    orchestrationID: "8471af1899b34564b2b04be799f50d75_88f1d5e1-7b9a-46b2-8357-0680b433d168",
+    hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
+    rootElementID: "root",
+    deploymentPlatform: "ibmcloud",
+    crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/8471af1899b34564b2b04be799f50d75:88f1d5e1-7b9a-46b2-8357-0680b433d168::",
+    chatOptions: {
+      agentId: "cc37586a-ed2f-4536-8e6b-70b342a7a9ba"
+    }
+  };
+
+  const script = document.createElement("script");
+  script.src = window.wxOConfiguration.hostURL + "/wxochat/wxoLoader.js?embed=true";
+
+  script.onload = function () {
+    if (typeof wxoLoader !== "undefined") {
+      wxoLoader.init();
+    }
+  };
+
+  document.head.appendChild(script);
+}
+</script>
+
+</body>
+</html>

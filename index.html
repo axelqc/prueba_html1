@@ -25,7 +25,7 @@
       min-height: 100vh;
     }
 
-    /* ── HEADER ─────────────────────────────────── */
+    /* HEADER */
     header {
       background: #f0f1f3;
       display: flex;
@@ -40,210 +40,132 @@
       box-shadow: 0 2px 8px rgba(0,0,0,.08);
     }
 
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      text-decoration: none;
-    }
-
-    .logo-wrap img {
-      height: 38px;
-
-      display: block;
-    }
+    .logo-wrap { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+    .logo-wrap img { height: 38px; display: block; }
 
     .header-label {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
       color: var(--red);
       border-left: 2px solid var(--red);
-      padding-left: 16px;
-      line-height: 1.2;
+      padding-left: 16px; line-height: 1.2;
     }
 
     .header-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #7a7e85;
-      letter-spacing: .04em;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: .04em;
     }
 
     .dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: #3d4148;
-      flex-shrink: 0;
-      transition: background .3s;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #bcc0c7; flex-shrink: 0; transition: background .3s;
     }
     .dot.active { background: #22c55e; box-shadow: 0 0 6px #22c55e88; }
 
-    /* ── MAIN LAYOUT ─────────────────────────────── */
+    /* MAIN */
     main {
-      max-width: 860px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 40px 24px 60px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+      padding: 36px 24px 60px;
+      display: flex; flex-direction: column; gap: 20px;
     }
 
-    /* ── PAGE TITLE ──────────────────────────────── */
-    .page-title {
-      display: flex;
-      align-items: flex-end;
-      gap: 12px;
-    }
-
+    .page-title { display: flex; align-items: flex-end; gap: 12px; }
     .page-title h1 {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--black);
-      letter-spacing: -.01em;
-      line-height: 1;
+      font-size: 36px; font-weight: 800; color: var(--black);
+      letter-spacing: -.01em; line-height: 1;
     }
+    .page-title span { font-size: 14px; font-weight: 600; color: var(--muted); padding-bottom: 5px; }
 
-    .page-title span {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--muted);
-      padding-bottom: 5px;
-    }
-
-    /* ── CARD ────────────────────────────────────── */
+    /* CARD */
     .card {
-      background: #fff;
-      border-radius: 12px;
+      background: #fff; border-radius: 12px;
       box-shadow: 0 1px 4px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.05);
       overflow: hidden;
     }
 
     .card-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 24px;
-      border-bottom: 1px solid var(--mid);
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 24px; border-bottom: 1px solid var(--mid);
     }
 
     .card-icon {
-      width: 32px; height: 32px;
-      border-radius: 8px;
+      width: 30px; height: 30px; border-radius: 7px;
       background: var(--red);
       display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
-      flex-shrink: 0;
+      font-size: 15px; flex-shrink: 0;
     }
 
     .card-header h3 {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: .02em;
-      color: var(--black);
+      font-size: 17px; font-weight: 700; letter-spacing: .02em; color: var(--black);
     }
 
-    .card-body { padding: 24px; }
+    .card-body { padding: 20px 24px; }
 
-    /* ── INSTRUCTIONS LIST ───────────────────────── */
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .step {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: 15px;
-      color: var(--text);
-    }
-
+    /* STEPS */
+    .steps { display: flex; flex-direction: column; gap: 10px; }
+    .step { display: flex; align-items: center; gap: 14px; font-size: 15px; color: var(--text); }
     .step-num {
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      background: var(--red);
-      color: #fff;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--red); color: #fff;
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 14px;
-      font-weight: 800;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
+      font-size: 14px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
 
-    /* ── LAUNCH BUTTON ───────────────────────────── */
+    /* BUTTON */
     .btn-launch {
-      width: 100%;
-      padding: 15px 24px;
+      width: 100%; padding: 14px 24px;
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      background: var(--red);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+      font-size: 18px; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      background: var(--red); color: #fff;
+      border: none; border-radius: 8px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
       transition: background .2s, transform .1s, box-shadow .2s;
       box-shadow: 0 4px 14px rgba(180,8,26,.35);
     }
-
     .btn-launch:hover  { background: var(--red-dk); box-shadow: 0 6px 20px rgba(180,8,26,.45); }
     .btn-launch:active { transform: scale(.98); }
 
-    /* ── STATUS BANNER ───────────────────────────── */
+    /* STATUS */
     .status-banner {
-      margin-top: 16px;
-      padding: 12px 16px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid transparent;
-      background: #fffbea;
-      border-color: #f0e18a;
-      color: #7a5c00;
+      margin-top: 14px; padding: 11px 16px; border-radius: 8px;
+      font-size: 14px; font-weight: 600;
+      display: flex; align-items: center; gap: 10px;
+      border: 1px solid #f0e18a; background: #fffbea; color: #7a5c00;
     }
+    .status-banner.ok    { background: #edfdf5; border-color: #86efac; color: #14532d; }
+    .status-banner.error { background: #fff1f1; border-color: #fca5a5; color: #7f1d1d; }
 
-    .status-banner.ok      { background: #edfdf5; border-color: #86efac; color: #14532d; }
-    .status-banner.error   { background: #fff1f1; border-color: #fca5a5; color: #7f1d1d; }
-
-    /* ── CHAT AREA ───────────────────────────────── */
+    /* CHAT */
     #chatContainer { display: none; }
+    #chatContainer .card-body { padding: 0; overflow: hidden; border-radius: 0 0 12px 12px; }
 
     #root {
+      width: 100%;
+      height: 72vh;
       min-height: 520px;
     }
 
-    /* ── FOOTER ──────────────────────────────────── */
-    footer {
-      text-align: center;
-      font-size: 12px;
-      color: var(--muted);
-      padding-bottom: 16px;
-    }
-
+    /* FOOTER */
+    footer { text-align: center; font-size: 12px; color: var(--muted); padding-bottom: 16px; }
     footer span { color: var(--red); font-weight: 700; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      header { padding: 0 16px; }
+      .header-label { display: none; }
+      main { padding: 16px 12px 40px; gap: 14px; }
+      #root { height: 78vh; min-height: 420px; }
+    }
   </style>
 </head>
 <body>
 
-<!-- ── HEADER ── -->
 <header>
   <a class="logo-wrap" href="#">
     <img src="https://www.vegusamaquinaria.com.mx/images/logo.svg" alt="Vegusa Maquinaria">
@@ -255,15 +177,13 @@
   </div>
 </header>
 
-<!-- ── MAIN ── -->
 <main>
 
   <div class="page-title">
-    <h1>🚛 Montacargas</h1>
+    <h1>🚛 Remolques</h1>
     <span>Panel de Mantenimiento Predictivo</span>
   </div>
 
-  <!-- Instructions -->
   <div class="card">
     <div class="card-header">
       <div class="card-icon">📋</div>
@@ -273,28 +193,22 @@
       <div class="steps">
         <div class="step"><div class="step-num">1</div><span>Haz clic en <strong>Levantar Servicio</strong> para activar el backend.</span></div>
         <div class="step"><div class="step-num">2</div><span>Espera a que el indicador muestre <strong>Servicio activo</strong>.</span></div>
-        <div class="step"><div class="step-num">3</div><span>Usa el chat que aparecerá debajo para interactuar con el asistente.</span></div>
+        <div class="step"><div class="step-num">3</div><span>Usa el chat para interactuar con el asistente de mantenimiento.</span></div>
       </div>
     </div>
   </div>
 
-  <!-- Launch -->
   <div class="card">
     <div class="card-header">
       <div class="card-icon">⚡</div>
       <h3>Estado del Servicio</h3>
     </div>
     <div class="card-body">
-      <button class="btn-launch" onclick="checkService()">
-        🚀 Levantar Servicio
-      </button>
-      <div class="status-banner" id="status">
-        🟡 Servicio no verificado
-      </div>
+      <button class="btn-launch" onclick="checkService()">🚀 Levantar Servicio</button>
+      <div class="status-banner" id="status">🟡 Servicio no verificado</div>
     </div>
   </div>
 
-  <!-- Chat -->
   <div class="card" id="chatContainer">
     <div class="card-header">
       <div class="card-icon">💬</div>
@@ -308,14 +222,14 @@
 </main>
 
 <footer>
-  Powered by <span>WATSONX.ORCHESTRATE</span> · Sistema de Mantenimiento de Remolques
+  Powered by <span>Vegusa Maquinaria</span> · Sistema de Mantenimiento de Remolques
 </footer>
 
 <script>
 async function checkService() {
-  const statusDiv  = document.getElementById("status");
-  const dot        = document.getElementById("headerDot");
-  const headerTxt  = document.getElementById("headerStatus");
+  const statusDiv = document.getElementById("status");
+  const dot       = document.getElementById("headerDot");
+  const headerTxt = document.getElementById("headerStatus");
 
   statusDiv.className = "status-banner";
   statusDiv.innerHTML = "⏳ Verificando servicio…";
@@ -323,7 +237,6 @@ async function checkService() {
   try {
     const response = await fetch("https://mantenimientos-remolques.onrender.com/health");
     if (!response.ok) throw new Error("HTTP " + response.status);
-
     const data = await response.json();
 
     if (data.status.toLowerCase() === "ok") {
@@ -352,7 +265,19 @@ function loadChat() {
     crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/42379027d430475b88345e10c0b3a286:f9c6e89a-063b-4b08-a991-345a2cf42dfc::",
     chatOptions: {
       agentId: "0f99cdaf-2e84-4b35-8c69-66791fe74dd8",
-    }
+    },
+    layout: {
+      form: "custom",
+      customElement: document.getElementById("root"),
+      showOrchestrateHeader: true,
+    },
+    style: {
+      headerColor: "b4081a",
+      userMessageBackgroundColor: "b4081a",
+      primaryColor: "b4081a",
+      showBackgroundGradient: false,
+    },
+    defaultLocale: "es",
   };
 
   const script = document.createElement("script");

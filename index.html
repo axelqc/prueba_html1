@@ -62,38 +62,52 @@
   .ok      { background: #d4edda; color: #155724; }
   .error   { background: #f8d7da; color: #721c24; }
   .warning { background: #fff3cd; color: #856404; }
+
+  /* Chat flotante fijo */
   #chatContainer {
     position: fixed;
     bottom: 0;
     right: 24px;
     width: 400px;
-    max-height: 600px;
+    height: 560px;
+    overflow: hidden;
     z-index: 1000;
     border-radius: 12px 12px 0 0;
     box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+    background: white;
     display: none;
-    overflow: hidden;
+    flex-direction: column;
   }
   #chatContainer h3 {
+    color: #030405;
     margin: 0;
     padding: 14px 18px;
-    border-bottom: 2px solid #b4081a;
-    background: white;
     font-size: 15px;
+    border-bottom: 2px solid #b4081a;
+    flex-shrink: 0;
   }
   #root {
-    width: 100%;
-    height: 520px;
-    overflow: hidden;
+    width: 100% !important;
+    flex: 1;
+    overflow: hidden !important;
+    position: static !important;
   }
-
+  #root > *, #root iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    min-height: unset !important;
+    overflow: hidden !important;
+    position: static !important;
+    transform: none !important;
+  }
 </style>
 </head>
 <body>
 <div class="container">
 
   <div class="header">
-    <!-- Logo Vegusa Maquinaria - SVG inline real -->
     <svg id="Group_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 577.086 183.403" aria-label="Vegusa Maquinaria">
       <defs><clipPath id="clip-path"><rect width="577.086" height="183.403" fill="none"/></clipPath></defs>
       <g clip-path="url(#clip-path)">
@@ -160,7 +174,7 @@
     <h3>📋 Instrucciones</h3>
     <p>1. Levanta el servicio</p>
     <p>2. Espera estado OK</p>
-    <p>3. Usa el chat que aparecerá abajo</p>
+    <p>3. Usa el chat que aparecerá en la esquina inferior derecha</p>
   </div>
 
   <div class="card">
@@ -168,12 +182,14 @@
     <div id="status" class="status warning">🟡 Servicio no verificado</div>
   </div>
 
-  <div class="card" id="chatContainer" style="display:none;">
-    <h3>💬 Chat de Mantenimiento</h3>
-    <div id="root"></div>
-  </div>
-
 </div>
+
+<!-- Chat flotante fuera del .container para no afectar el layout -->
+<div id="chatContainer">
+  <h3>💬 Chat de Mantenimiento</h3>
+  <div id="root"></div>
+</div>
+
 <script>
 async function checkService() {
   const statusDiv = document.getElementById("status");
@@ -198,7 +214,7 @@ async function checkService() {
 }
 
 function loadChat() {
-  document.getElementById("chatContainer").style.display = "block";
+  document.getElementById("chatContainer").style.display = "flex";
   window.wxOConfiguration = {
     orchestrationID: "42379027d430475b88345e10c0b3a286_f9c6e89a-063b-4b08-a991-345a2cf42dfc",
     hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",

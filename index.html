@@ -124,7 +124,16 @@ async function checkService() {
 function loadChat() {
   document.getElementById("chatContainer").style.display = "block";
 
- window.wxOConfiguration = {     orchestrationID: "21eeb60675a14f05b43f4080c59e98d6_3fb2297e-453b-4f1b-9432-0a3b979010b6",     hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",     rootElementID: "root",     deploymentPlatform: "ibmcloud",     crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/21eeb60675a14f05b43f4080c59e98d6:3fb2297e-453b-4f1b-9432-0a3b979010b6::",     chatOptions: {         agentId: "f178f839-cc11-4872-8edf-2b0018b23efa",     }   }; 
+  window.wxOConfiguration = {
+    orchestrationID: "42379027d430475b88345e10c0b3a286_f9c6e89a-063b-4b08-a991-345a2cf42dfc",
+    hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
+    rootElementID: "root",
+    deploymentPlatform: "ibmcloud",
+    crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/42379027d430475b88345e10c0b3a286:f9c6e89a-063b-4b08-a991-345a2cf42dfc::",
+    chatOptions: {
+        agentId: "0f99cdaf-2e84-4b35-8c69-66791fe74dd8", 
+    }
+  }; 
   const script = document.createElement("script");
   script.src = window.wxOConfiguration.hostURL + "/wxochat/wxoLoader.js?embed=true";
 
